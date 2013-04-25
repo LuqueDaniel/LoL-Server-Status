@@ -26,7 +26,7 @@ For compile in Windows you need **[py2exe](http://www.py2exe.org/)**
 
 In terminal (cmd or console) enter in "LoL-Server-Status" folder and execute the next command.
 
-``` shell
+```Shell
 cd LoL-Server-Status
 python compile_windows.py py2exe
 ```
