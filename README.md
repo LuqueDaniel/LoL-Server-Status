@@ -18,7 +18,7 @@ Dependencies
 
 Changelog
 ------------------------------------------------------------------------------
-See **[Changelog.md](https://github.com/LuqueDaniel/LoL-Server-Status/blob/master/changelog.md)** for more information
+See **[changelog.md](https://github.com/LuqueDaniel/LoL-Server-Status/blob/master/changelog.md)** for more information
 
 How compile for Windows
 ------------------------------------------------------------------------------
