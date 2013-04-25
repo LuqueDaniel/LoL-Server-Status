@@ -26,7 +26,7 @@ See **[changelog.md](https://github.com/LuqueDaniel/LoL-Server-Status/blob/maste
 
 How compile for Windows
 ------------------------------------------------------------------------------
-For compile in Windows you need **[py2exe](http://www.py2exe.org/)**
+For compile LoL Server Status for Windows is necessary **[py2exe](http://www.py2exe.org/)**
 
 In terminal (cmd or console) enter in "LoL-Server-Status" folder and execute the next command.
 
