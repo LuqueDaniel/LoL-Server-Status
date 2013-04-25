@@ -6,11 +6,17 @@ League of Legends.
 Version: **1.0**<br />
 Licensed under: **GPL v3**
 
+[]
+
 Download packages
 ------------------------------------------------------------------------------
 - **Latest version 1.0 for Windows: [Download](https://github.com/LuqueDaniel/LoL-Server-Status/blob/master/packages/1.0/LoL_Server_Status_Windows_1.0.zip?raw=true) (Size: 9.1 MB)**
 
 **[Download previous versions of packages and executables](https://github.com/LuqueDaniel/LoL-Server-Status/tree/master/packages)**
+
+Screenshots
+------------------------------------------------------------------------------
+![screenshot](https://raw.github.com/LuqueDaniel/LoL-Server-Status/master/screenshots/main_window.png)
 
 Dependencies
 ------------------------------------------------------------------------------
