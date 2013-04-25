@@ -1,0 +1,88 @@
+/*
+This file is part of LoL Server Status
+
+LoL Server Status is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+any later version.
+
+LoL Server Status is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with LoL Server Status. If not, see <http://www.gnu.org/licenses/>.
+
+Source: <http://github.com/LuqueDaniel/LoL-Server-Status>
+*/
+
+
+QComboBox {
+    background-color: #252525;
+    border: 1px solid #0073de;
+    color: white;
+    }
+
+QLabel#label_title {
+    font-size: 13px;
+    font-weight: bold;
+    }
+
+QMainWindow {
+    background-color: #1e1e1e;
+    }
+
+QPushButton {
+    background-color: #252525;
+    border: 1px solid #0073de;
+    color: white;
+    padding: 4px;
+    }
+
+QPushButton:pressed {
+    background-color: #1b1b1b;
+    border-color: #0068ca;
+    }
+
+
+aboutWidget, configWidget, QMessageBox {
+    background-color: #313131;
+    }
+
+
+aboutWidget QLabel {
+    color: white;
+    font-family: 'Arial';
+    font-size: 11px;
+    }
+
+
+configWidget QLabel {
+    color: white;
+    font-family: 'Arial';
+    font-size: 11px;
+    }
+
+
+server_widget QLabel {
+    color: white;
+    font-family: 'Arial', 'Sans-serif';
+    font-size: 11px;
+    font-weight: normal;
+    }
+
+
+title_bar QLabel {
+    color: #545454;
+    font-size: 13px;
+    }
+
+title_bar QToolButton {
+    background-color: none;
+    border: none;
+    }
+
+title_bar QToolButton:hover {
+    background-color: #2f2f2f;
+    }
