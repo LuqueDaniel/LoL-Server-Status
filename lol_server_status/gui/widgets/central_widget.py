@@ -21,8 +21,8 @@
 #LoL Server Status imports
 from lol_server_status.core.get_status import get_servers_status
 from lol_server_status.core.settings import return_update_time
-from lol_server_status.gui.widgets.tittle_bar import title_bar
-from lol_server_status.gui.widgets.server_widget import server_widget
+from lol_server_status.gui.widgets.tittle_bar import titleBar
+from lol_server_status.gui.widgets.server_widget import serverWidget
 from lol_server_status.gui.widgets.about import aboutWidget
 from lol_server_status.gui.widgets.config import configWidget
 
@@ -36,15 +36,15 @@ from PyQt4.QtCore import SIGNAL
 from PyQt4.QtCore import QTimer
 
 
-class central_widget(QWidget):
+class centralWidget(QWidget):
 
     def __init__(self, parent=None):
-        super(central_widget, self).__init__()
+        super(centralWidget, self).__init__()
         self.parent = parent
         self.setMouseTracking(True)
 
         #title_bar
-        self.title_bar = title_bar(self, parent)
+        self.title_bar = titleBar(self, parent)
 
         #LAYOUTS
         #Title_bar layout
@@ -57,7 +57,7 @@ class central_widget(QWidget):
         self.vbox.addLayout(title_bar_layout)
 
         #Load servers
-        self.load_server_widgets()
+        self.load_serverWidgets()
 
         #Set QTimer for update status
         self.timer = QTimer(self)
@@ -70,20 +70,20 @@ class central_widget(QWidget):
                      self.open_config_window)
         self.connect(self.timer, SIGNAL('timeout()'), self.update_server_status)
 
-    def load_server_widgets(self):
+    def load_serverWidgets(self):
         #Load servers status
         servers = get_servers_status()
 
         #Instance servers widgets
-        self.na = server_widget(self, servers['NA'])
-        self.euw = server_widget(self, servers['EUW'])
-        self.eune = server_widget(self, servers['EUNE'])
-        self.br = server_widget(self, servers['BR'])
-        self.tr = server_widget(self, servers['TR'])
-        self.ru = server_widget(self, servers['RU'])
-        self.pbe = server_widget(self, servers['PBE'])
+        self.na = serverWidget(self, servers['NA'])
+        self.euw = serverWidget(self, servers['EUW'])
+        self.eune = serverWidget(self, servers['EUNE'])
+        self.br = serverWidget(self, servers['BR'])
+        self.tr = serverWidget(self, servers['TR'])
+        self.ru = serverWidget(self, servers['RU'])
+        self.pbe = serverWidget(self, servers['PBE'])
 
-        #Add server_widget to layout
+        #Add serverWidget to layout
         self.vbox.addWidget(self.na)
         self.vbox.addWidget(self.euw)
         self.vbox.addWidget(self.eune)
@@ -93,7 +93,7 @@ class central_widget(QWidget):
         self.vbox.addWidget(self.pbe)
 
     def update_server_status(self):
-        #Remove server_widget
+        #Remove serverWidget
         self.vbox.removeWidget(self.na)
         self.vbox.removeWidget(self.euw)
         self.vbox.removeWidget(self.eune)

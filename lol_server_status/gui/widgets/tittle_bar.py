@@ -35,10 +35,10 @@ from PyQt4.QtCore import QSize
 from PyQt4.QtCore import SIGNAL
 
 
-class title_bar(QWidget):
+class titleBar(QWidget):
 
     def __init__(self, parent=None, app=None):
-        super(title_bar, self).__init__()
+        super(titleBar, self).__init__()
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         self.app = app
 

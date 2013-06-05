@@ -23,7 +23,7 @@ from lol_server_status import __prj__
 from lol_server_status import __version__
 from lol_server_status.resources import STYLES
 from lol_server_status.resources import IMAGES
-from lol_server_status.gui.widgets.central_widget import central_widget
+from lol_server_status.gui.widgets.central_widget import centralWidget
 
 #PyQt4.QtGui imports
 from PyQt4.QtGui import QApplication
@@ -40,19 +40,19 @@ from PyQt4.QtCore import QSettings
 import sys
 
 
-class main_window(QMainWindow):
+class mainWindow(QMainWindow):
     """Main window for application"""
 
     def __init__(self):
-        super(main_window, self).__init__()
+        super(mainWindow, self).__init__()
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setMinimumWidth(270)
         self.setWindowTitle('LoL Server Status')
         #Load app settings
         self.load_settings()
 
-        #Init central_widget
-        self.setCentralWidget(central_widget(self))
+        #Init centralWidget
+        self.setCentralWidget(centralWidget(self))
 
     def load_settings(self):
         """This function load the application settings"""
@@ -94,7 +94,7 @@ def start():
         app.setStyleSheet(style)
 
     #Run user interface
-    window = main_window()
+    window = mainWindow()
     window.show()
 
     sys.exit(app.exec_())
