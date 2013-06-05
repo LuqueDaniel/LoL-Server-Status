@@ -59,19 +59,15 @@ class main_window(QMainWindow):
 
         qsettings = QSettings()
 
-        qsettings.beginGroup('MainWindow')
-        self.move(qsettings.value('pos',
+        self.move(qsettings.value('MainWindow/pos',
                 self.frameGeometry().center()).toPoint())
-        qsettings.endGroup()
 
     def write_settings(self):
         """This function write the application settings"""
 
         qsettings = QSettings()
 
-        qsettings.beginGroup('MainWindow')
-        qsettings.setValue('pos', self.pos())
-        qsettings.endGroup()
+        qsettings.setValue('MainWindow/pos', self.pos())
 
     def closeEvent(self, event):
         self.write_settings()
