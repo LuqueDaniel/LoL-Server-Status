@@ -50,6 +50,12 @@ class aboutWidget(QWidget):
         self.label_title = QLabel('LoL Server Status')
         self.label_title.setAlignment(Qt.AlignCenter)
 
+        #label_source
+        self.label_source = QLabel(
+            'Source: <a style="color:#0073de" href="%s">Github repository</a>' %
+            __source__)
+        self.label_source.setOpenExternalLinks(True)
+
         #btn_about_qt
         self.btn_about_qt = QPushButton('About Qt')
 
@@ -59,8 +65,7 @@ class aboutWidget(QWidget):
         vbox.addWidget(QLabel('Version: %s' % __version__))
         vbox.addWidget(QLabel('Author: %s' % __author__))
         vbox.addWidget(QLabel('License: %s' % __license__))
-        vbox.addWidget(QLabel('Source: <a href="%s">Github repository</a>' %
-                                __source__))
+        vbox.addWidget(self.label_source)
         vbox.addWidget(self.btn_about_qt)
 
         #CONNECT SGNALS
