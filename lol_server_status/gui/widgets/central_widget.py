@@ -106,9 +106,11 @@ class centralWidget(QWidget):
         self.load_server_widgets()
 
     def open_about_window(self):
+        """Open about dialog"""
         self.about = aboutWidget(self.parent)
         self.about.show()
 
     def open_config_window(self):
+        """Open config dialog"""
         self.config = configWidget(self.parent)
         self.config.show()
