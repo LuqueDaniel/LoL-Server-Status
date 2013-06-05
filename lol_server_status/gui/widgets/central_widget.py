@@ -19,8 +19,8 @@
 
 
 #LoL Server Status imports
+from lol_server_status.resources import LIST_UPDATE_TIME
 from lol_server_status.core.get_status import get_servers_status
-from lol_server_status.core.settings import return_update_time
 from lol_server_status.gui.widgets.tittle_bar import titleBar
 from lol_server_status.gui.widgets.server_widget import serverWidget
 from lol_server_status.gui.widgets.about import aboutWidget
@@ -38,7 +38,7 @@ from PyQt4.QtCore import QTimer
 
 class centralWidget(QWidget):
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, updateTime=0):
         super(centralWidget, self).__init__()
         self.parent = parent
         self.setMouseTracking(True)
@@ -57,11 +57,11 @@ class centralWidget(QWidget):
         self.vbox.addLayout(title_bar_layout)
 
         #Load servers
-        self.load_serverWidgets()
+        self.load_server_widgets()
 
         #Set QTimer for update status
         self.timer = QTimer(self)
-        self.timer.start(return_update_time())
+        self.timer.start(LIST_UPDATE_TIME[updateTime])
 
         #CONNECT SIGNALS
         self.connect(self.title_bar.button_about, SIGNAL('clicked()'),
@@ -70,7 +70,7 @@ class centralWidget(QWidget):
                      self.open_config_window)
         self.connect(self.timer, SIGNAL('timeout()'), self.update_server_status)
 
-    def load_serverWidgets(self):
+    def load_server_widgets(self):
         #Load servers status
         servers = get_servers_status()
 

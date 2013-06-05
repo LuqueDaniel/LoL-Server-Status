@@ -52,7 +52,7 @@ class mainWindow(QMainWindow):
         self.load_settings()
 
         #Init centralWidget
-        self.setCentralWidget(centralWidget(self))
+        self.setCentralWidget(centralWidget(self, self.update_time))
 
     def load_settings(self):
         """This function load the application settings"""
@@ -61,6 +61,7 @@ class mainWindow(QMainWindow):
 
         self.move(qsettings.value('MainWindow/pos',
                 self.frameGeometry().center()).toPoint())
+        self.update_time = qsettings.value('configs/update_time', 0, type=int)
 
     def write_settings(self):
         """This function write the application settings"""
@@ -70,6 +71,7 @@ class mainWindow(QMainWindow):
         qsettings.setValue('MainWindow/pos', self.pos())
 
     def closeEvent(self, event):
+        """Close event"""
         self.write_settings()
 
 
