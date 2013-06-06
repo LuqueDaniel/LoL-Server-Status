@@ -48,6 +48,7 @@ class aboutWidget(QWidget):
 
         #label_title
         self.label_title = QLabel('LoL Server Status')
+        self.label_title.setObjectName('label_title')
         self.label_title.setAlignment(Qt.AlignCenter)
 
         #label_source
