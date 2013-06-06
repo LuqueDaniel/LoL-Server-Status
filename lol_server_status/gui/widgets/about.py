@@ -73,7 +73,7 @@ class aboutWidget(QWidget):
         self.connect(self.btn_about_qt, SIGNAL('clicked()'), self.open_about_qt)
 
     def open_about_qt(self):
-        about_qt = QMessageBox.aboutQt(self, 'About Qt')
+        QMessageBox.aboutQt(self, 'About Qt')
 
     def mousePressEvent(self, event):
         self.close()
