@@ -47,30 +47,30 @@ class aboutWidget(QWidget):
         self.setFocus(False)
 
         #label_title
-        self.label_title = QLabel('LoL Server Status')
-        self.label_title.setObjectName('label_title')
-        self.label_title.setAlignment(Qt.AlignCenter)
+        label_title = QLabel('LoL Server Status')
+        label_title.setObjectName('label_title')
+        label_title.setAlignment(Qt.AlignCenter)
 
         #label_source
-        self.label_source = QLabel(
+        label_source = QLabel(
             'Source: <a style="color:#0073de" href="%s">Github repository</a>' %
             __source__)
-        self.label_source.setOpenExternalLinks(True)
+        label_source.setOpenExternalLinks(True)
 
         #btn_about_qt
-        self.btn_about_qt = QPushButton('About Qt')
+        btn_about_qt = QPushButton('About Qt')
 
         #General layout
         vbox = QVBoxLayout(self)
-        vbox.addWidget(self.label_title)
+        vbox.addWidget(label_title)
         vbox.addWidget(QLabel('Version: %s' % __version__))
         vbox.addWidget(QLabel('Author: %s' % __author__))
         vbox.addWidget(QLabel('License: %s' % __license__))
-        vbox.addWidget(self.label_source)
-        vbox.addWidget(self.btn_about_qt)
+        vbox.addWidget(label_source)
+        vbox.addWidget(btn_about_qt)
 
         #CONNECT SGNALS
-        self.connect(self.btn_about_qt, SIGNAL('clicked()'), self.open_about_qt)
+        self.connect(btn_about_qt, SIGNAL('clicked()'), self.open_about_qt)
 
     def open_about_qt(self):
         QMessageBox.aboutQt(self, 'About Qt')
