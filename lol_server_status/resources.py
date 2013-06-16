@@ -100,6 +100,14 @@ LOL_SERVERS = {'NA': {'short_name': 'na',
                       'lang': 'ru',
                       'name': 'Russia'},
 
+               'LAN': {'short_name': 'lan',
+                       'lang': 'es',
+                       'name': 'Latin America North'},
+
+               'LAS': {'short_name': 'las',
+                       'lang': 'es',
+                       'name': 'Latin America South'},
+
                'PBE': {'short_name': 'pbe',
                        'lang': 'en',
                        'name': 'Public Beta Environment'}}
