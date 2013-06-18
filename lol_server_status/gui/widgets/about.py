@@ -55,6 +55,7 @@ class aboutWidget(QWidget):
         label_source = QLabel(
             'Source: <a style="color:#0073de" href="%s">Github repository</a>' %
             __source__)
+        label_source.setToolTip('Github repository')
         label_source.setOpenExternalLinks(True)
 
         #btn_about_qt
