@@ -28,7 +28,7 @@ How compile for Windows
 ------------------------------------------------------------------------------
 For compile LoL Server Status for Windows is necessary **[py2exe](http://www.py2exe.org/)**
 
-In terminal (cmd or console) enter in "LoL-Server-Status" folder and execute the next command.<\ br>
+In terminal (cmd or console) enter in "LoL-Server-Status" folder and execute the next command.<br />
 You may need to include the module "win32con".
 
 ```bash
