@@ -22,8 +22,8 @@ __prj__ = 'LoL Server Status'
 __author__ = 'Daniel Luque'
 __mail__ = 'danielluque14 at gmail dot com'
 __source__ = 'http://github.com/LuqueDaniel/LoL-Server-Status'
-__version__ = '1.0'
-__license__ = 'GPL v3'
+__version__ = '1.1'
+__license__ = 'GPLv3'
 __docu__ = """LoL Server Status is an application for checking servers status of
 League of Legends"""
 

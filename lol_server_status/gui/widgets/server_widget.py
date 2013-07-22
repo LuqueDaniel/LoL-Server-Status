@@ -35,10 +35,10 @@ from PyQt4.QtCore import QPointF
 from PyQt4.QtCore import Qt
 
 
-class server_widget(QWidget):
+class serverWidget(QWidget):
 
     def __init__(self, parent=None, server=None):
-        super(server_widget, self).__init__()
+        super(serverWidget, self).__init__()
         self.setAutoFillBackground(True)
         self.setBackgroundRole(QPalette.Highlight)
 

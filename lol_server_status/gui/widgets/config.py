@@ -41,9 +41,9 @@ class configWidget(QWidget):
         self.setFocus(False)
 
         #label_title
-        self.label_title = QLabel('Configurations')
-        self.label_title.setObjectName('label_title')
-        self.label_title.setAlignment(Qt.AlignCenter)
+        label_title = QLabel('Configurations')
+        label_title.setObjectName('label_title')
+        label_title.setAlignment(Qt.AlignCenter)
 
         #combo_update_time
         self.combo_update_time = QComboBox()
@@ -55,14 +55,14 @@ class configWidget(QWidget):
 
         #LAYOUTS
         #layout_update_time
-        self.layout_update_time = QHBoxLayout()
-        self.layout_update_time.addWidget(QLabel('Update time:'))
-        self.layout_update_time.addWidget(self.combo_update_time)
+        layout_update_time = QHBoxLayout()
+        layout_update_time.addWidget(QLabel('Update time:'))
+        layout_update_time.addWidget(self.combo_update_time)
 
         #General layout
         vbox = QVBoxLayout(self)
-        vbox.addWidget(self.label_title)  # Add label_title
-        vbox.addLayout(self.layout_update_time)  # Add layout_update_time
+        vbox.addWidget(label_title)  # Add label_title
+        vbox.addLayout(layout_update_time)  # Add layout_update_time
 
         self.load_config()
 

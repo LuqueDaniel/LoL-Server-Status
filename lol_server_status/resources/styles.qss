@@ -65,7 +65,7 @@ configWidget QLabel {
     }
 
 
-server_widget QLabel {
+serverWidget QLabel {
     color: white;
     font-family: 'Arial', 'Sans-serif';
     font-size: 11px;
@@ -73,16 +73,16 @@ server_widget QLabel {
     }
 
 
-title_bar QLabel {
+titleBar QLabel {
     color: #545454;
     font-size: 13px;
     }
 
-title_bar QToolButton {
+titleBar QToolButton {
     background-color: none;
     border: none;
     }
 
-title_bar QToolButton:hover {
+titleBar QToolButton:hover {
     background-color: #2f2f2f;
     }

@@ -71,7 +71,7 @@ parameters = {
                         'dll_excludes': ['MSVCP90.dll'],
                         'compressed': 1,
                         'optimize': 2,
-                        'includes': ['sip', 'win32com'],
+                        'includes': ['sip'],
                         'excludes': ['bsddb', 'curses', 'email',
                             'pywin.debugger', 'pywin.debugger.dbgcon',
                             'pywin.dialogs'],
