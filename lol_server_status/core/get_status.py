@@ -34,6 +34,9 @@ from urllib2 import urlopen
 from urllib2 import HTTPError
 from urllib2 import URLError
 
+#socket import
+import socket
+
 
 def get_status(server_id, lang):
     """This function obtain status of a specific LoL server
@@ -54,6 +57,8 @@ def get_status(server_id, lang):
         return error.reason
     except HTTPError, error:
         return error.code
+    except socket.error:
+        pass
 
 
 def get_servers_status():

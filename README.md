@@ -8,7 +8,7 @@ Licensed under: **GPL v3**
 
 Download packages
 ------------------------------------------------------------------------------
-- **Latest version 1.1 for Windows: [Download](https://github.com/LuqueDaniel/LoL-Server-Status/blob/master/packages/1.1/LoL_Server_Status_Windows_1.1.zip?raw=true) (Size: 9.1 MB)**
+- **Latest version 1.1 for Windows: [Download](https://github.com/LuqueDaniel/LoL-Server-Status/blob/master/packages/1.1/LoL_Server_Status_Windows_1.1.zip?raw=true) (Size: 8.76 MB)**
 
 **[Download previous versions of packages and executables](https://github.com/LuqueDaniel/LoL-Server-Status/tree/master/packages)**
 
@@ -28,7 +28,8 @@ How compile for Windows
 ------------------------------------------------------------------------------
 For compile LoL Server Status for Windows is necessary **[py2exe](http://www.py2exe.org/)**
 
-In terminal (cmd or console) enter in "LoL-Server-Status" folder and execute the next command.
+In terminal (cmd or console) enter in "LoL-Server-Status" folder and execute the next command.<\ br>
+You may need to include the module "win32con".
 
 ```bash
 cd LoL-Server-Status
