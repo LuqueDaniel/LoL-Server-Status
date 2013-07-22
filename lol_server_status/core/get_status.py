@@ -35,15 +35,15 @@ from urllib2 import HTTPError
 from urllib2 import URLError
 
 
-def get_status(short_name, lang):
+def get_status(server_id, lang):
     """This function obtain status of a specific LoL server
 
     Parameters:
-        short_name: Acronym of the LoL server. Example: NA is North America.
+        server_id: Acronym of the LoL server. Example: NA is North America.
         lang: Principal language of the server.
     """
 
-    url = LOL_JSON_BASE_URL % (short_name, lang)
+    url = LOL_JSON_BASE_URL % (server_id, lang)
 
     try:
         open_url = urlopen(url)
@@ -61,7 +61,7 @@ def get_servers_status():
 
     servers_status = {}
     for i in list(LOL_SERVERS.items()):
-        status = get_status(i[1]['short_name'], i[1]['lang'])
+        status = get_status(i[1]['id'], i[1]['lang'])
 
         servers_status[i[0]] = {'short_name': i[1]['short_name'],
                                 'name': i[1]['name'],

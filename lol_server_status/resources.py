@@ -76,41 +76,55 @@ LOL_JSON_BASE_URL = "http://ll.leagueoflegends.com/pages/launcher/%s?lang=%s"
 # LEAGUE OF LEGENDS SERVERS
 ###############################################################################
 
-LOL_SERVERS = {'NA': {'short_name': 'na',
-                      'lang': 'en',
-                      'name': 'North America'},
-
-               'EUW': {'short_name': 'euw',
+LOL_SERVERS = {'NA': {'id': 'na',
+                       'short_name': 'na',
                        'lang': 'en',
-                       'name': 'EU West'},
+                       'name': 'North America'},
 
-               'EUNE': {'short_name': 'eune',
+                'EUW': {'id': 'euw',
+                        'short_name': 'euw',
                         'lang': 'en',
-                        'name': 'EU Nordic & East'},
+                        'name': 'EU West'},
 
-               'BR': {'short_name': 'br',
-                      'lang': 'pt',
-                      'name': 'Brazil'},
+                'EUNE': {'id': 'eune',
+                         'short_name': 'eune',
+                         'lang': 'en',
+                         'name': 'EU Nordic & East'},
 
-               'TR': {'short_name': 'tr',
-                      'lang': 'tr',
-                      'name': 'Turkey'},
+                'BR': {'id': 'br',
+                       'short_name': 'br',
+                       'lang': 'pt',
+                       'name': 'Brazil'},
 
-               'RU': {'short_name': 'ru',
-                      'lang': 'ru',
-                      'name': 'Russia'},
+                'TR': {'id': 'tr',
+                       'short_name': 'tr',
+                       'lang': 'tr',
+                       'name': 'Turkey'},
 
-               'LAN': {'short_name': 'lan',
-                       'lang': 'es',
-                       'name': 'Latin America North'},
+                'RU': {'id': 'ru',
+                       'short_name': 'ru',
+                       'lang': 'ru',
+                       'name': 'Russia'},
 
-               'LAS': {'short_name': 'las',
-                       'lang': 'es',
-                       'name': 'Latin America South'},
+                'LAN': {'id': 'la1',
+                        'short_name': 'lan',
+                        'lang': 'es',
+                        'name': 'Latin America North'},
 
-               'PBE': {'short_name': 'pbe',
-                       'lang': 'en',
-                       'name': 'Public Beta Environment'}}
+                'LAS': {'id': 'la2',
+                        'short_name': 'las',
+                        'lang': 'es',
+                        'name': 'Latin America South'},
+
+                'OCE': {'id': 'oce',
+                        'short_name': 'oce',
+                        'lang': 'en',
+                        'name': 'Oceanic'},
+
+                'PBE': {'id': 'pbe',
+                        'short_name': 'pbe',
+                        'lang': 'en',
+                        'name': 'Public Beta Environment'}}
 
 ###############################################################################
 # LIST_UPDATE_TIME
