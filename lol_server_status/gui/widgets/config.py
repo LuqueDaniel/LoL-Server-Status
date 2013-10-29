@@ -80,6 +80,10 @@ class configWidget(QWidget):
         self.combo_update_time.setCurrentIndex(
                     qsettings.value('configs/update_time', 0, type=int))
 
-    def mousePressEvent(self, event):
-        self.save_config()
-        self.close()
+    def mouseDoubleClickEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.close()
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Escape:
+            self.close()
