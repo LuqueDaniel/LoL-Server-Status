@@ -19,4 +19,4 @@
 
 
 #Import run_lol_status_server()
-from lol_server_status.core.core import run_lol_status_server
+from lol_server_status.core.core import run_lol_server_status
