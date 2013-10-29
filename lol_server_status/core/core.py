@@ -25,7 +25,8 @@ from lol_server_status.gui import main
 import sys
 
 
-def run_lol_status_server():
+def run_lol_server_status():
+    """Run LoL Server status"""
 
     #Change the process name only for GNU/Linux
     #Since kernel version 2.6.9

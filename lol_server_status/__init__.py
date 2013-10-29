@@ -32,4 +32,4 @@ def run():
     #Import lol_server_status CORE
     from lol_server_status import core
 
-    core.run_lol_status_server()
+    core.run_lol_server_status()
