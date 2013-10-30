@@ -45,6 +45,11 @@ QPushButton:pressed {
     border-color: #0068ca;
     }
 
+QToolTip {
+    color:white;
+    background-color: #eee;
+    }
+
 
 aboutWidget, configWidget, QMessageBox {
     background-color: #313131;
