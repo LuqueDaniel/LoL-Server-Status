@@ -87,9 +87,7 @@ check your internet connection""" % (server['name']))
         """This function create gradient background"""
 
         painter = QPainter(self)
-        start = QPointF(100, 0)
-        stop = QPointF(100, 100)
-        gradient = QLinearGradient(start, stop)
+        gradient = QLinearGradient(QPointF(100, 0), QPointF(100, 100))
         gradient.setColorAt(1, QColor(COLOR_SCHEME['server_widget_bg1']))
         gradient.setColorAt(0, QColor(COLOR_SCHEME['server_widget_bg2']))
         painter.fillRect(self.rect(), gradient)
