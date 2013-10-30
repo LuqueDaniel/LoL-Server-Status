@@ -82,8 +82,10 @@ class configWidget(QWidget):
 
     def mouseDoubleClickEvent(self, event):
         if event.button() == Qt.LeftButton:
+            self.save_config()
             self.close()
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Escape:
+            self.save_config()
             self.close()
