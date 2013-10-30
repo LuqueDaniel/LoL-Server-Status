@@ -43,40 +43,40 @@ class serverWidget(QWidget):
         self.setBackgroundRole(QPalette.Highlight)
 
         if server['status'] == 1:
-            self.label_name = QLabel('%s' % (server['short_name'].upper()))
-            self.label_status = QLabel('<font color="%s">%s</font>' % (
+            label_name = QLabel('%s' % (server['short_name'].upper()))
+            label_status = QLabel('<font color="%s">%s</font>' % (
                                        COLOR_SCHEME['server_online'], 'ONLINE'))
 
             self.setToolTip('%s server is currently online' % (server['name']))
 
         elif server['status'] == 2:
-            self.label_name = QLabel('%s' % (server['short_name'].upper()))
-            self.label_status = QLabel('<font color="%s">%s</font>' % (
+            label_name = QLabel('%s' % (server['short_name'].upper()))
+            label_status = QLabel('<font color="%s">%s</font>' % (
                                        COLOR_SCHEME['server_busy'], 'BUSY'))
 
             self.setToolTip('%s server is currently busy' % (server['name']))
 
         elif server['status'] == 0:
-            self.label_name = QLabel('%s' % (server['short_name'].upper()))
-            self.label_status = QLabel('<font color="%s">%s</font>' % (
+            label_name = QLabel('%s' % (server['short_name'].upper()))
+            label_status = QLabel('<font color="%s">%s</font>' % (
                                      COLOR_SCHEME['server_offline'], 'OFFLINE'))
 
             self.setToolTip('%s server is currently offline' % (server['name']))
 
         else:
-            self.label_name = QLabel('%s' % (server['short_name'].upper()))
-            self.label_status = QLabel('<font color="%s">UNDEFINED</fon>' % (
+            label_name = QLabel('%s' % (server['short_name'].upper()))
+            label_status = QLabel('<font color="%s">UNDEFINED</fon>' % (
                                     COLOR_SCHEME['server_undefined']))
 
             self.setToolTip("""%s server is currently undefined
 check your internet connection""" % (server['name']))
 
-        self.label_name.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
-        self.label_status.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        label_name.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+        label_status.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
 
         hbox = QHBoxLayout()
-        hbox.addWidget(self.label_name)
-        hbox.addWidget(self.label_status)
+        hbox.addWidget(label_name)
+        hbox.addWidget(label_status)
 
         self.setLayout(hbox)
 
