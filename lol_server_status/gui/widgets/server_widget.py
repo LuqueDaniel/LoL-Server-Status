@@ -42,6 +42,7 @@ class serverWidget(QWidget):
         self.setAutoFillBackground(True)
         self.setBackgroundRole(QPalette.Highlight)
 
+        #Check status
         if server['status'] == 1:
             label_name = QLabel('%s' % (server['short_name'].upper()))
             label_status = QLabel('<font color="%s">%s</font>' % (
@@ -71,9 +72,11 @@ class serverWidget(QWidget):
             self.setToolTip("""%s server is currently undefined
 check your internet connection""" % (server['name']))
 
+        #set aligment
         label_name.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
         label_status.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
 
+        #General layout
         hbox = QHBoxLayout()
         hbox.addWidget(label_name)
         hbox.addWidget(label_status)
@@ -81,6 +84,8 @@ check your internet connection""" % (server['name']))
         self.setLayout(hbox)
 
     def paintEvent(self, event):
+        """This function create gradient background"""
+
         painter = QPainter(self)
         start = QPointF(100, 0)
         stop = QPointF(100, 100)
