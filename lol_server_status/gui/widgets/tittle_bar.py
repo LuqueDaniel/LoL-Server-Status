@@ -20,6 +20,8 @@
 
 #lol_server_status imports
 from lol_server_status.resources import IMAGES
+from lol_server_status.gui.widgets.about import aboutWidget
+from lol_server_status.gui.widgets.config import configWidget
 
 #PyQt4.QtGui imports
 from PyQt4.QtGui import QWidget
@@ -37,51 +39,64 @@ from PyQt4.QtCore import SIGNAL
 
 class titleBar(QWidget):
 
-    def __init__(self, parent=None, app=None):
+    def __init__(self, app=None):
         super(titleBar, self).__init__()
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         self.app = app
 
         #button_close
-        self.button_close = QToolButton(self)
-        self.button_close.setIcon(QIcon(IMAGES['close']))
-        self.button_close.setIconSize(QSize(30, 14))
+        button_close = QToolButton()
+        button_close.setIcon(QIcon(IMAGES['close']))
+        button_close.setIconSize(QSize(30, 14))
 
         #button_minimize
-        self.button_minimize = QToolButton(self)
-        self.button_minimize.setIcon(QIcon(IMAGES['minimize']))
-        self.button_minimize.setIconSize(QSize(30, 14))
+        button_minimize = QToolButton()
+        button_minimize.setIcon(QIcon(IMAGES['minimize']))
+        button_minimize.setIconSize(QSize(30, 14))
 
         #button_config
-        self.button_config = QToolButton(self)
-        self.button_config.setIcon(QIcon(IMAGES['config']))
-        self.button_config.setIconSize(QSize(30, 14))
-        self.button_config.setToolTip('Configuration')
+        button_config = QToolButton()
+        button_config.setIcon(QIcon(IMAGES['config']))
+        button_config.setIconSize(QSize(30, 14))
+        button_config.setToolTip('Configuration')
 
         #button_about
-        self.button_about = QToolButton(self)
-        self.button_about.setIcon(QIcon(IMAGES['about']))
-        self.button_about.setIconSize(QSize(30, 14))
-        self.button_about.setToolTip('About LoL Server Status')
+        button_about = QToolButton()
+        button_about.setIcon(QIcon(IMAGES['about']))
+        button_about.setIconSize(QSize(30, 14))
+        button_about.setToolTip('About LoL Server Status')
 
         #label_title
-        self.label_title = QLabel('LoL Server Status', self)
-        self.label_title.setAlignment(Qt.AlignCenter)
+        label_title = QLabel('LoL Server Status')
+        label_title.setAlignment(Qt.AlignCenter)
 
         #General layout
         hbox = QHBoxLayout(self)
         hbox.setMargin(0)
         hbox.setSpacing(1)
-        hbox.addWidget(self.label_title)
-        hbox.addWidget(self.button_about)
-        hbox.addWidget(self.button_config)
-        hbox.addWidget(self.button_minimize)
-        hbox.addWidget(self.button_close)
+        hbox.addWidget(label_title)
+        hbox.addWidget(button_about)
+        hbox.addWidget(button_config)
+        hbox.addWidget(button_minimize)
+        hbox.addWidget(button_close)
 
         #CONNECT SIGNALS
-        self.connect(self.button_close, SIGNAL('clicked()'), self.app.close)
-        self.connect(self.button_minimize, SIGNAL('clicked()'),
+        self.connect(button_about, SIGNAL('clicked()'), self.open_about_window)
+        self.connect(button_config, SIGNAL('clicked()'),
+                     self.open_config_window)
+        self.connect(button_close, SIGNAL('clicked()'), self.app.close)
+        self.connect(button_minimize, SIGNAL('clicked()'),
                      self.app.showMinimized)
+
+    def open_about_window(self):
+        """Open about dialog"""
+        self.about = aboutWidget(self.app)
+        self.about.show()
+
+    def open_config_window(self):
+        """Open config dialog"""
+        self.config = configWidget(self.app)
+        self.config.show()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
