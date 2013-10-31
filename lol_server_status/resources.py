@@ -28,14 +28,13 @@ import sys
 # PATHs
 ###############################################################################
 
-#Project_path
-PROJECT_PATH = path.abspath(path.dirname(__file__))
-
 #Only for py2exe
-frozen = getattr(sys, 'frozen', '')
-if frozen in ('dll', 'console_exe', 'windows_exe'):
+if getattr(sys, 'frozen', '') in ('dll', 'console_exe', 'windows_exe'):
     # py2exe:
     PROJECT_PATH = path.abspath(path.dirname(sys.executable))
+else:
+    #Project_path
+    PROJECT_PATH = path.abspath(path.dirname(__file__))
 
 ###############################################################################
 # STYLES

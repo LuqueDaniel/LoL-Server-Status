@@ -47,7 +47,8 @@ QPushButton:pressed {
 
 QToolTip {
     color:white;
-    background-color: #eee;
+    background-color: #1e1e1e;
+    border: 1px solid #252525;
     }
 
 
