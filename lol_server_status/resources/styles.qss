@@ -24,6 +24,14 @@ QComboBox {
     color: white;
     }
 
+QComboBox QListView::item:hover {
+    background-color: #282828;
+    }
+
+QComboBox QListView {
+    background-color: #252525;
+    }
+
 QLabel#label_title {
     font-size: 13px;
     font-weight: bold;
