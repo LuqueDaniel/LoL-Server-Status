@@ -31,17 +31,23 @@ from distutils.core import setup
 #py2exe
 import py2exe
 
+#shutil imports
+import shutil
 
-packages = find_packages()
+#os imports
+import os
 
 
-information = {'script': 'lol-server-status.py',
-              'Version': lol_server_status.__version__,
-              'copyright': lol_server_status.__license__,
-              'name': lol_server_status.__prj__,
-              'dest_base': lol_server_status.__prj__,
-              'icon_resources': [(1, 'windows_icon.ico')]}
+#Check if exists dist folder
+if os.path.exists('dist'):
+    #remove dist folder
+    shutil.rmtree('dist')
+elif os.path.exists('build'):
+    shutil.rmtree('build')
 
+###############################################################################
+# ADD RESOURCE FILES AND PACKAGES
+###############################################################################
 
 #Add resources files
 resources_files = [('images', []), ('resources', [])]
@@ -52,6 +58,20 @@ for img in resources.IMAGES.items():
 
 #Add styles
 resources_files[1][1].append(resources.STYLES)
+
+#Add packages
+packages = find_packages()
+
+###############################################################################
+# INFORMATION AND OPTIONS
+###############################################################################
+
+information = {'script': 'lol-server-status.py',
+              'Version': lol_server_status.__version__,
+              'copyright': lol_server_status.__license__,
+              'name': lol_server_status.__prj__,
+              'dest_base': lol_server_status.__prj__,
+              'icon_resources': [(1, 'windows_icon.ico')]}
 
 
 parameters = {
@@ -84,5 +104,8 @@ parameters = {
                     }
                 }
 
+###############################################################################
+# SETUP
+###############################################################################
 
 setup(**parameters)
