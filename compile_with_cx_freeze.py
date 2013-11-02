@@ -69,7 +69,7 @@ build_options = {
     "compressed": True,
     "create_shared_zip": True,
     "icon": "windows_icon.ico",
-    "include_msvcr": False,
+    "include_msvcr": False,  # MVisual C runtime DLLs
     "copy_dependent_files": True,
     "include_in_shared_zip": True,
     'include_files': resources_files}
