@@ -24,13 +24,14 @@ from os import path
 #sys import
 import sys
 
+
 ###############################################################################
 # PATHs
 ###############################################################################
 
-#Only for py2exe
-if getattr(sys, 'frozen', '') in ('dll', 'console_exe', 'windows_exe'):
-    # py2exe:
+# For Py2exe and cx_freeze
+if getattr(sys, 'frozen', False):
+    # py2exe and cx_freeze
     PROJECT_PATH = path.abspath(path.dirname(sys.executable))
 else:
     #Project_path
