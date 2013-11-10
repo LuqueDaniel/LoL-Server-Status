@@ -94,6 +94,7 @@ def start():
     with open(STYLES, 'r') as f:
         style = f.read()
         app.setStyleSheet(style)
+        f.close()
 
     #Run user interface
     window = mainWindow()
