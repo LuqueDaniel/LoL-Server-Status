@@ -53,7 +53,7 @@ elif os.path.exists('build'):
 resources_files = [('images', []), ('resources', [])]
 
 #Add images
-for img in resources.IMAGES.items():
+for img in list(resources.IMAGES.items()):
     resources_files[0][1].append(img[1])
 
 #Add styles
