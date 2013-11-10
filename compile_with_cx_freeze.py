@@ -56,7 +56,7 @@ resources_files.append(
 ###############################################################################
 
 module_excludes = ['email', 'Tkinter', 'unittest', 'curses', 'pywin.debugger',
-                'pywin.debugger.dbgcon', 'pywin.dialogs']
+                   'pywin.debugger.dbgcon', 'pywin.dialogs']
 
 ###############################################################################
 # OPTIONS
