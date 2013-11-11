@@ -134,7 +134,8 @@ LOL_SERVERS = {
                'PBE': {'id': 'pbe',
                        'short_name': 'pbe',
                        'lang': 'en',
-                       'name': 'Public Beta Environment'}
+                       'name': 'Public Beta Environment',
+                       'status_url': None}
                        }
 
 ###############################################################################

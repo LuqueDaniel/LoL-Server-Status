@@ -29,10 +29,12 @@ from PyQt4.QtGui import QPainter
 from PyQt4.QtGui import QPalette
 from PyQt4.QtGui import QColor
 from PyQt4.QtGui import QLinearGradient
+from PyQt4.QtGui import QDesktopServices
 
 #PyQt4.QtCore imports
 from PyQt4.QtCore import QPointF
 from PyQt4.QtCore import Qt
+from PyQt4.QtCore import QUrl
 
 
 class serverWidget(QWidget):
@@ -41,6 +43,13 @@ class serverWidget(QWidget):
         super(serverWidget, self).__init__()
         self.setAutoFillBackground(True)
         self.setBackgroundRole(QPalette.Highlight)
+
+        #Set server
+        self.server = server
+
+        #Set cursor
+        if server['status_url'] is not None:
+            self.setCursor(Qt.PointingHandCursor)
 
         #Check status
         if server['status'] == 1:
@@ -82,6 +91,13 @@ check your internet connection""" % (server['name']))
         hbox.addWidget(label_status)
 
         self.setLayout(hbox)
+
+    def mousePressEvent(self, event):
+        """This function open server status url"""
+
+        if event.button() == Qt.LeftButton:
+            if self.server['status_url'] is not None:
+                QDesktopServices.openUrl(QUrl(self.server['status_url']))
 
     def paintEvent(self, event):
         """This function create gradient background"""

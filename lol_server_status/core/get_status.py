@@ -70,6 +70,7 @@ def get_servers_status():
 
         servers_status[server[0]] = {'short_name': server[1]['short_name'],
                                      'name': server[1]['name'],
-                                     'status': status}
+                                     'status': status,
+                                     'status_url': server[1]['status_url']}
 
     return servers_status
