@@ -28,7 +28,7 @@ See **[changelog.md](https://github.com/LuqueDaniel/LoL-Server-Status/blob/maste
 
 How compile for Windows
 ------------------------------------------------------------------------------
-**With py2exe:**
+**With py2exe:**<br />
 For compile LoL Server Status for Windows is necessary **[py2exe](http://www.py2exe.org/)**
 
 In terminal (cmd or console) enter in "LoL-Server-Status" folder and execute the next command.<br />
@@ -38,7 +38,7 @@ You may need to include the module "win32con".
 python compile_with_py2exe_windows.py py2exe
 ```
 
-**With cx_freeze:**
+**With cx_freeze:**<br />
 In terminal (cmd or console) enter in "LoL-Server-Status" folder and execute the next command.
 
 ```bash
