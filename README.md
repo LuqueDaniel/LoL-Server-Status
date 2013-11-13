@@ -8,7 +8,7 @@ Licensed under: **GPL v3**
 
 Download packages
 ------------------------------------------------------------------------------
-- **Latest version 1.2 for Windows: [Download](https://github.com/LuqueDaniel/LoL-Server-Status/releases/tag/1.2) (Size: MB)**
+- **Latest version 1.2 for Windows: [Download](https://github.com/LuqueDaniel/LoL-Server-Status/releases/tag/1.2) (Size: 11.8 MB)**
 
 **[Download previous versions of packages and executables](https://github.com/LuqueDaniel/LoL-Server-Status/releases)**
 
