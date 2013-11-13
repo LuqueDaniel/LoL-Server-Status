@@ -23,8 +23,6 @@ from lol_server_status.resources import LIST_UPDATE_TIME
 from lol_server_status.core.get_status import get_servers_status
 from lol_server_status.gui.widgets.tittle_bar import titleBar
 from lol_server_status.gui.widgets.server_widget import serverWidget
-from lol_server_status.gui.widgets.about import aboutWidget
-from lol_server_status.gui.widgets.config import configWidget
 
 #PyQt4.QtGui imports
 from PyQt4.QtGui import QWidget
@@ -38,19 +36,19 @@ from PyQt4.QtCore import QTimer
 
 class centralWidget(QWidget):
 
-    def __init__(self, parent=None, updateTime=0):
+    def __init__(self, app=None, updateTime=0):
         super(centralWidget, self).__init__()
-        self.parent = parent
+        self.parent = app
         self.setMouseTracking(True)
 
         #title_bar
-        self.title_bar = titleBar(self, parent)
+        title_bar = titleBar(app)
 
         #LAYOUTS
         #Title_bar layout
         title_bar_layout = QHBoxLayout()
         title_bar_layout.setContentsMargins(0, 0, 0, 8)
-        title_bar_layout.addWidget(self.title_bar)
+        title_bar_layout.addWidget(title_bar)
 
         #General Layout
         self.vbox = QVBoxLayout(self)
@@ -60,15 +58,11 @@ class centralWidget(QWidget):
         self.load_server_widgets()
 
         #Set QTimer for update status
-        self.timer = QTimer(self)
-        self.timer.start(LIST_UPDATE_TIME[updateTime])
+        timer = QTimer(self)
+        timer.start(LIST_UPDATE_TIME[updateTime])
 
         #CONNECT SIGNALS
-        self.connect(self.title_bar.button_about, SIGNAL('clicked()'),
-                     self.open_about_window)
-        self.connect(self.title_bar.button_config, SIGNAL('clicked()'),
-                     self.open_config_window)
-        self.connect(self.timer, SIGNAL('timeout()'), self.update_server_status)
+        self.connect(timer, SIGNAL('timeout()'), self.update_server_status)
 
     def load_server_widgets(self):
         #Load servers status
@@ -113,13 +107,3 @@ class centralWidget(QWidget):
 
         #Reload server widgets
         self.load_server_widgets()
-
-    def open_about_window(self):
-        """Open about dialog"""
-        self.about = aboutWidget(self.parent)
-        self.about.show()
-
-    def open_config_window(self):
-        """Open config dialog"""
-        self.config = configWidget(self.parent)
-        self.config.show()

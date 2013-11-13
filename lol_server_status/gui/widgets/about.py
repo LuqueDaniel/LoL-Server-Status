@@ -76,5 +76,10 @@ class aboutWidget(QWidget):
     def open_about_qt(self):
         QMessageBox.aboutQt(self, 'About Qt')
 
-    def mousePressEvent(self, event):
-        self.close()
+    def mouseDoubleClickEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.close()
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Escape:
+            self.close()

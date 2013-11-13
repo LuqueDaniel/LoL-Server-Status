@@ -24,18 +24,18 @@ from os import path
 #sys import
 import sys
 
+
 ###############################################################################
 # PATHs
 ###############################################################################
 
-#Project_path
-PROJECT_PATH = path.abspath(path.dirname(__file__))
-
-#Only for py2exe
-frozen = getattr(sys, 'frozen', '')
-if frozen in ('dll', 'console_exe', 'windows_exe'):
-    # py2exe:
+# For Py2exe and cx_freeze
+if getattr(sys, 'frozen', False):
+    # py2exe and cx_freeze
     PROJECT_PATH = path.abspath(path.dirname(sys.executable))
+else:
+    #Project_path
+    PROJECT_PATH = path.abspath(path.dirname(__file__))
 
 ###############################################################################
 # STYLES
@@ -76,55 +76,67 @@ LOL_JSON_BASE_URL = "http://ll.leagueoflegends.com/pages/launcher/%s?lang=%s"
 # LEAGUE OF LEGENDS SERVERS
 ###############################################################################
 
-LOL_SERVERS = {'NA': {'id': 'na',
-                       'short_name': 'na',
+LOL_SERVERS = {
+               'NA': {'id': 'na',
+                      'short_name': 'na',
+                      'lang': 'en',
+                      'name': 'North America',
+                      'status_url': 'http://forums.na.leagueoflegends.com/board/forumdisplay.php?f=20'},
+
+               'EUW': {'id': 'euw',
+                       'short_name': 'euw',
                        'lang': 'en',
-                       'name': 'North America'},
+                       'name': 'EU West',
+                       'status_url': 'http://forums.euw.leagueoflegends.com/board/forumdisplay.php?f=10'},
 
-                'EUW': {'id': 'euw',
-                        'short_name': 'euw',
+               'EUNE': {'id': 'eune',
+                        'short_name': 'eune',
                         'lang': 'en',
-                        'name': 'EU West'},
+                        'name': 'EU Nordic & East',
+                        'status_url': 'http://forums.eune.leagueoflegends.com/board/forumdisplay.php?f=10'},
 
-                'EUNE': {'id': 'eune',
-                         'short_name': 'eune',
-                         'lang': 'en',
-                         'name': 'EU Nordic & East'},
+               'BR': {'id': 'br',
+                      'short_name': 'br',
+                      'lang': 'pt',
+                      'name': 'Brazil',
+                      'status_url': 'http://forums.br.leagueoflegends.com/board/forumdisplay.php?f=17'},
 
-                'BR': {'id': 'br',
-                       'short_name': 'br',
-                       'lang': 'pt',
-                       'name': 'Brazil'},
+               'TR': {'id': 'tr',
+                      'short_name': 'tr',
+                      'lang': 'tr',
+                      'name': 'Turkey',
+                      'status_url': 'http://forums.tr.leagueoflegends.com/board/forumdisplay.php?f=17'},
 
-                'TR': {'id': 'tr',
-                       'short_name': 'tr',
-                       'lang': 'tr',
-                       'name': 'Turkey'},
+               'RU': {'id': 'ru',
+                      'short_name': 'ru',
+                      'lang': 'ru',
+                      'name': 'Russia',
+                      'status_url': 'http://forums.ru.leagueoflegends.com/board/forumdisplay.php?f=95'},
 
-                'RU': {'id': 'ru',
-                       'short_name': 'ru',
-                       'lang': 'ru',
-                       'name': 'Russia'},
+               'LAN': {'id': 'la1',
+                       'short_name': 'lan',
+                       'lang': 'es',
+                       'name': 'Latin America North',
+                       'status_url': 'http://forums.lan.leagueoflegends.com/board/forumdisplay.php?f=113'},
 
-                'LAN': {'id': 'la1',
-                        'short_name': 'lan',
-                        'lang': 'es',
-                        'name': 'Latin America North'},
+               'LAS': {'id': 'la2',
+                       'short_name': 'las',
+                       'lang': 'es',
+                       'name': 'Latin America South',
+                       'status_url': 'http://forums.las.leagueoflegends.com/board/forumdisplay.php?f=113'},
 
-                'LAS': {'id': 'la2',
-                        'short_name': 'las',
-                        'lang': 'es',
-                        'name': 'Latin America South'},
+               'OCE': {'id': 'oce',
+                       'short_name': 'oce',
+                       'lang': 'en',
+                       'name': 'Oceanic',
+                       'status_url': 'http://forums.oce.leagueoflegends.com/board/forumdisplay.php?f=64'},
 
-                'OCE': {'id': 'oce',
-                        'short_name': 'oce',
-                        'lang': 'en',
-                        'name': 'Oceanic'},
-
-                'PBE': {'id': 'pbe',
-                        'short_name': 'pbe',
-                        'lang': 'en',
-                        'name': 'Public Beta Environment'}}
+               'PBE': {'id': 'pbe',
+                       'short_name': 'pbe',
+                       'lang': 'en',
+                       'name': 'Public Beta Environment',
+                       'status_url': None}
+                       }
 
 ###############################################################################
 # LIST_UPDATE_TIME

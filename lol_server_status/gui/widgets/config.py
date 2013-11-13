@@ -47,11 +47,9 @@ class configWidget(QWidget):
 
         #combo_update_time
         self.combo_update_time = QComboBox()
-        self.combo_update_time.addItem('1 minute')
-        self.combo_update_time.addItem('2 minutes')
-        self.combo_update_time.addItem('5 minutes')
-        self.combo_update_time.addItem('10 minutes')
-        self.combo_update_time.addItem('30 minutes')
+        for item in ("1 minute", "2 minutes", "5 minutes", "10 minutes",
+                     "20 minutes"):
+            self.combo_update_time.addItem(item)
 
         #LAYOUTS
         #layout_update_time
@@ -80,6 +78,12 @@ class configWidget(QWidget):
         self.combo_update_time.setCurrentIndex(
                     qsettings.value('configs/update_time', 0, type=int))
 
-    def mousePressEvent(self, event):
-        self.save_config()
-        self.close()
+    def mouseDoubleClickEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.save_config()
+            self.close()
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Escape:
+            self.save_config()
+            self.close()

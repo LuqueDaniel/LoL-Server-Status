@@ -65,11 +65,12 @@ def get_servers_status():
     """This function return a dict with servers information"""
 
     servers_status = {}
-    for i in list(LOL_SERVERS.items()):
-        status = get_status(i[1]['id'], i[1]['lang'])
+    for server in list(LOL_SERVERS.items()):
+        status = get_status(server[1]['id'], server[1]['lang'])
 
-        servers_status[i[0]] = {'short_name': i[1]['short_name'],
-                                'name': i[1]['name'],
-                                'status': status}
+        servers_status[server[0]] = {'short_name': server[1]['short_name'],
+                                     'name': server[1]['name'],
+                                     'status': status,
+                                     'status_url': server[1]['status_url']}
 
     return servers_status

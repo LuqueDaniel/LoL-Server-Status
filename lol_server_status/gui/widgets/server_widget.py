@@ -29,10 +29,12 @@ from PyQt4.QtGui import QPainter
 from PyQt4.QtGui import QPalette
 from PyQt4.QtGui import QColor
 from PyQt4.QtGui import QLinearGradient
+from PyQt4.QtGui import QDesktopServices
 
 #PyQt4.QtCore imports
 from PyQt4.QtCore import QPointF
 from PyQt4.QtCore import Qt
+from PyQt4.QtCore import QUrl
 
 
 class serverWidget(QWidget):
@@ -42,49 +44,66 @@ class serverWidget(QWidget):
         self.setAutoFillBackground(True)
         self.setBackgroundRole(QPalette.Highlight)
 
+        #Set server
+        self.server = server
+
+        #Set cursor
+        if server['status_url'] is not None:
+            self.setCursor(Qt.PointingHandCursor)
+
+        #Check status
         if server['status'] == 1:
-            self.label_name = QLabel('%s' % (server['short_name'].upper()))
-            self.label_status = QLabel('<font color="%s">%s</font>' % (
+            label_name = QLabel('%s' % (server['short_name'].upper()))
+            label_status = QLabel('<font color="%s">%s</font>' % (
                                        COLOR_SCHEME['server_online'], 'ONLINE'))
 
             self.setToolTip('%s server is currently online' % (server['name']))
 
         elif server['status'] == 2:
-            self.label_name = QLabel('%s' % (server['short_name'].upper()))
-            self.label_status = QLabel('<font color="%s">%s</font>' % (
+            label_name = QLabel('%s' % (server['short_name'].upper()))
+            label_status = QLabel('<font color="%s">%s</font>' % (
                                        COLOR_SCHEME['server_busy'], 'BUSY'))
 
             self.setToolTip('%s server is currently busy' % (server['name']))
 
         elif server['status'] == 0:
-            self.label_name = QLabel('%s' % (server['short_name'].upper()))
-            self.label_status = QLabel('<font color="%s">%s</font>' % (
+            label_name = QLabel('%s' % (server['short_name'].upper()))
+            label_status = QLabel('<font color="%s">%s</font>' % (
                                      COLOR_SCHEME['server_offline'], 'OFFLINE'))
 
             self.setToolTip('%s server is currently offline' % (server['name']))
 
         else:
-            self.label_name = QLabel('%s' % (server['short_name'].upper()))
-            self.label_status = QLabel('<font color="%s">UNDEFINED</fon>' % (
+            label_name = QLabel('%s' % (server['short_name'].upper()))
+            label_status = QLabel('<font color="%s">UNDEFINED</fon>' % (
                                     COLOR_SCHEME['server_undefined']))
 
             self.setToolTip("""%s server is currently undefined
 check your internet connection""" % (server['name']))
 
-        self.label_name.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
-        self.label_status.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        #set aligment
+        label_name.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+        label_status.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
 
+        #General layout
         hbox = QHBoxLayout()
-        hbox.addWidget(self.label_name)
-        hbox.addWidget(self.label_status)
+        hbox.addWidget(label_name)
+        hbox.addWidget(label_status)
 
         self.setLayout(hbox)
 
+    def mousePressEvent(self, event):
+        """This function open server status url"""
+
+        if event.button() == Qt.LeftButton:
+            if self.server['status_url'] is not None:
+                QDesktopServices.openUrl(QUrl(self.server['status_url']))
+
     def paintEvent(self, event):
+        """This function create gradient background"""
+
         painter = QPainter(self)
-        start = QPointF(100, 0)
-        stop = QPointF(100, 100)
-        gradient = QLinearGradient(start, stop)
+        gradient = QLinearGradient(QPointF(100, 0), QPointF(100, 100))
         gradient.setColorAt(1, QColor(COLOR_SCHEME['server_widget_bg1']))
         gradient.setColorAt(0, QColor(COLOR_SCHEME['server_widget_bg2']))
         painter.fillRect(self.rect(), gradient)

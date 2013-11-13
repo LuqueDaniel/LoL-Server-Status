@@ -63,7 +63,7 @@ class mainWindow(QMainWindow):
                 self.frameGeometry().center()).toPoint())
         self.update_time = qsettings.value('configs/update_time', 0, type=int)
 
-    def write_settings(self):
+    def save_settings(self):
         """This function write the application settings"""
 
         qsettings = QSettings()
@@ -72,7 +72,7 @@ class mainWindow(QMainWindow):
 
     def closeEvent(self, event):
         """Close event"""
-        self.write_settings()
+        self.save_settings()
 
 
 def start():
@@ -94,6 +94,7 @@ def start():
     with open(STYLES, 'r') as f:
         style = f.read()
         app.setStyleSheet(style)
+        f.close()
 
     #Run user interface
     window = mainWindow()
